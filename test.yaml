@@ -1,0 +1,42 @@
+#object
+microservice:
+#free lines
+ - app : user_auth
+   port : 9000
+   version : 1.8
+ - app :shoping
+   port : 9002
+   version : #or [1.4,1.5,1.6]
+   - 1.4
+   - 1.5
+   - 1.6
+
+
+microservice:
+  - user_auth
+  - shoping  
+
+---
+# kubernates configrutions OR pod ____________________ hellp
+
+
+apiversion: v1
+kind: pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+        - protocol: TCP
+        - name: http
+      volumeMounts:
+        - name: nginx-storage
+          mountPath: /usr/share/nginx/html
+          
+---          
+  
