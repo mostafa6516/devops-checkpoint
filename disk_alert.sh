@@ -16,3 +16,6 @@ df -H | grep -vE '^Filesystem|tmpfs' | while read -r line; do
     fi
 done
 \\note to try commit and add
+
+
+grap : to ready data
