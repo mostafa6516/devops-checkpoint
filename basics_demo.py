@@ -1,5 +1,4 @@
 
-from os import open
 
 
 #reading files
