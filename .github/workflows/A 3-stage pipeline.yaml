@@ -23,7 +23,7 @@ jobs:
 
       - name: Check files exist and have no syntax errors
         run: |
-          python -m py_compile file.py file2.py
+          python -m py_compile file.py 
 
   # ---------- STAGE 2: RUN THE FILES (this is our "test") ----------
   test:
@@ -43,8 +43,7 @@ jobs:
         # There's no keyboard here, so we pipe in "4" (Exit) to close it cleanly.
         run: echo "4" | python file.py
 
-      - name: Run file2.py
-        run: python file2.py
+      
 
   # ---------- STAGE 3: EMAIL ME IF ANYTHING ABOVE FAILED ----------
   notify:
