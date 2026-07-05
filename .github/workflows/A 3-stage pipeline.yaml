@@ -3,9 +3,9 @@ name: CI Pipeline
 # Runs every time you push code, or open a pull request, to main
 on:
   push:
-    branches: [main]
+    branches: [main, aldeep]
   pull_request:
-    branches: [main]
+    branches: [main, aldeep]
 
 jobs:
 
