@@ -39,7 +39,9 @@ jobs:
           python-version: '3.12'
 
       - name: Run file.py
-        run: python file.py
+        # file.py shows an interactive menu and waits for keyboard input.
+        # There's no keyboard here, so we pipe in "4" (Exit) to close it cleanly.
+        run: echo "4" | python file.py
 
       - name: Run file2.py
         run: python file2.py
