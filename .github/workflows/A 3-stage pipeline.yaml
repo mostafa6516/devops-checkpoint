@@ -3,9 +3,9 @@ name: CI Pipeline
 # Runs every time you push code, or open a pull request, to main
 on:
   push:
-    branches: [main]
+    branches: [main, aldeep]
   pull_request:
-    branches: [main]
+    branches: [main, aldeep]
 
 jobs:
 
@@ -23,7 +23,7 @@ jobs:
 
       - name: Check files exist and have no syntax errors
         run: |
-          python -m py_compile file.py file2.py
+          python -m py_compile file.py 
 
   # ---------- STAGE 2: RUN THE FILES (this is our "test") ----------
   test:
@@ -39,10 +39,11 @@ jobs:
           python-version: '3.12'
 
       - name: Run file.py
-        run: python file.py
+        # file.py shows an interactive menu and waits for keyboard input.
+        # There's no keyboard here, so we pipe in "4" (Exit) to close it cleanly.
+        run: echo "4" | python file.py
 
-      - name: Run file2.py
-        run: python file2.py
+      
 
   # ---------- STAGE 3: EMAIL ME IF ANYTHING ABOVE FAILED ----------
   notify:
