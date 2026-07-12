@@ -21,6 +21,13 @@ pipeline {
         }
 
         stage('Build') {
+            agent {
+                docker {
+                    image 'python:3.11-slim'
+                    args '-v $WORKSPACE:/app -w /app'
+                    reuseNode true
+                }
+            }
             steps {
                 // No requirements.txt / external deps needed for this script.
                 // Compile it as a lightweight smoke test that it's valid Python.
