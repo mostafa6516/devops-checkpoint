@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY file.py .
 
-CMD ["python3", "file.py"]
+CMD ["python2", "file.py"]
