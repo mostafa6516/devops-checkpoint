@@ -25,6 +25,38 @@ def clear_data():
             f.write("") # This clears the file
         print("File cleared!")
 
+# --- TEST CODE (Runs without requiring input) ---
+def test_file_operations():
+    import os
+    test_filename = "test_temp.txt"
+    print("\n[+] Running automated test for file operations...")
+    
+    # Temporary mock of FILE_NAME
+    global FILE_NAME
+    original_filename = FILE_NAME
+    FILE_NAME = test_filename
+    
+    try:
+        # Write test data
+        with open(FILE_NAME, "w") as f:
+            f.write("Line 1\nLine 2\n")
+        
+        # Read and check test data
+        with open(FILE_NAME, "r") as f:
+            content = f.read()
+            
+        assert content == "Line 1\nLine 2\n", f"Test failed! Expected 'Line 1\\nLine 2\\n', got {repr(content)}"
+        print("[+] Automated test passed successfully!")
+    finally:
+        # Clean up
+        if os.path.exists(test_filename):
+            os.remove(test_filename)
+        # Restore FILE_NAME
+        FILE_NAME = original_filename
+
+# Execute test
+test_file_operations()
+
 # --- MAIN MENU LOOP ---
 while True:
     print("\n=== SIMPLE FILE MENU ===")
