@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: ghcr.io/mostafa6516/devops-checkpoint:6d0f9ba014d1df40eb3777535faf11f25a075cec
+        image: ghcr.io/mostafa6516/devops-checkpoint:ab68269af3462b36d76617daba9aecceabb9da10
         imagePullPolicy: Always
         stdin: true
