@@ -16,5 +16,6 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: nginx:1.27
+        image: ghcr.io/mostafa6516/devops-checkpoint:latest
         imagePullPolicy: Always
+        stdin: true
