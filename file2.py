@@ -21,6 +21,7 @@ while True:
         f.write(text + "\n")
         f.close()
         print("Added!")
+        print("argo test")
 
     elif choice == "3":
         confirm = input("Are you sure you want to clear the file? (yes/no): ")
