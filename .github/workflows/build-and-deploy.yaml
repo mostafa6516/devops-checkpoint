@@ -20,6 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -35,6 +38,9 @@ jobs:
         with:
           context: .
           push: true
+          # the kind cluster node is arm64 (Apple Silicon); QEMU cross-builds
+          # it on the amd64 GitHub runner
+          platforms: linux/arm64
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
 
       - name: Update deployment image tag
