@@ -122,3 +122,10 @@ while True:
 
     else:
         print("Invalid choice.")
+
+
+
+
+
+
+        file = open(FILE_NAME, "r")
