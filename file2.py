@@ -38,3 +38,9 @@ while True:
 
     else:
         print("Invalid choice.")
+
+
+
+        FILE_NAME = "text.txt"
+
+file = open(FILE_NAME, "r")

@@ -3,7 +3,9 @@ kind: Deployment
 metadata:
   name: demo-app
 spec:
-  replicas: 2
+  replicas: 5
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: demo-app
@@ -14,4 +16,6 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: nginx:1.25
+        image: ghcr.io/mostafa6516/devops-checkpoint:c9c26978743391f2a1d2ac9996131f0479b2faee
+        imagePullPolicy: Always
+        stdin: true
